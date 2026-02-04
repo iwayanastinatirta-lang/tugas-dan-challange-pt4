@@ -1,0 +1,11 @@
+import random
+
+answer = random.choice(['python', 'halo', 'hai', 'hujan'])
+
+while True:
+    user_input = input('tebak kata: ')
+    if user_input == answer:
+        print('kamu benar')
+        break
+
+print('selesai')
