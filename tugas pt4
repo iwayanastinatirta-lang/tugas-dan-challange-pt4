@@ -1,0 +1,48 @@
+# Mini Text Adventure Game
+
+current_room = "perpustakaan"
+inventory = []
+
+print("=== MINI TEXT ADVENTURE GAME ===")
+print("Ketik perintah: north, south, get key, unlock door, quit")
+
+while True:
+    print("\nKamu berada di:", current_room)
+
+    # Ruangan 1: Perpustakaan
+    if current_room == "perpustakaan":
+        print("Ada sebuah KUNCI di sini.")
+        command = input("Apa yang kamu lakukan? ").lower()
+
+        if command == "get key":
+            if "kunci" not in inventory:
+                inventory.append("kunci")
+                print("✅ Kamu mengambil kunci.")
+            else:
+                print("Kamu sudah punya kunci.")
+        elif command == "south":
+            current_room = "koridor"
+        elif command == "quit":
+            print("Game selesai.")
+            break
+        else:
+            print("Perintah tidak dikenal.")
+
+    # Ruangan 2: Koridor
+    elif current_room == "koridor":
+        print("Ada PINTU TERKUNCI di depanmu.")
+        command = input("Apa yang kamu lakukan? ").lower()
+
+        if command == "unlock door":
+            if "kunci" in inventory:
+                print("🎉 Kamu membuka pintu dan MENANG!")
+                break
+            else:
+                print("❌ Pintu terkunci. Kamu butuh kunci.")
+        elif command == "north":
+            current_room = "perpustakaan"
+        elif command == "quit":
+            print("Game selesai.")
+            break
+        else:
+            print("Perintah tidak dikenal.")
