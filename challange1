@@ -1,0 +1,7 @@
+rocket_launch = 10
+
+while rocket_launch > 0:
+    print(f'hitung mundur-{rocket_launch}')
+    rocket_launch = rocket_launch - 1
+
+print('Blast off')
